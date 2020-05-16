@@ -6,99 +6,99 @@ defmodule AbsintheProject.Model do
   import Ecto.Query, warn: false
   alias AbsintheProject.Repo
 
-  alias AbsintheProject.Model.Album
+  alias AbsintheProject.Model.Book
 
   @doc """
-  Returns the list of albums.
+  Returns the list of books.
 
   ## Examples
 
-      iex> list_albums()
-      [%Album{}, ...]
+      iex> list_books()
+      [%Book{}, ...]
 
   """
-  def list_albums do
-    Repo.all(Album)
+  def list_books do
+    Repo.all(Book)
   end
 
   @doc """
-  Gets a single album.
+  Gets a single book.
 
-  Raises `Ecto.NoResultsError` if the Album does not exist.
+  Raises `Ecto.NoResultsError` if the Book does not exist.
 
   ## Examples
 
-      iex> get_album!(123)
-      %Album{}
+      iex> get_book!(123)
+      %Book{}
 
-      iex> get_album!(456)
+      iex> get_book!(456)
       ** (Ecto.NoResultsError)
 
   """
-  def get_album!(id), do: Repo.get!(Album, id)
+  def get_book!(id), do: Repo.get!(Book, id)
 
   @doc """
-  Creates a album.
+  Creates a book.
 
   ## Examples
 
-      iex> create_album(%{field: value})
-      {:ok, %Album{}}
+      iex> create_book(%{field: value})
+      {:ok, %Book{}}
 
-      iex> create_album(%{field: bad_value})
+      iex> create_book(%{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def create_album(attrs \\ %{}) do
-    %Album{}
-    |> Album.changeset(attrs)
+  def create_book(attrs \\ %{}) do
+    %Book{}
+    |> Book.changeset(attrs)
     |> Repo.insert()
   end
 
   @doc """
-  Updates a album.
+  Updates a book.
 
   ## Examples
 
-      iex> update_album(album, %{field: new_value})
-      {:ok, %Album{}}
+      iex> update_book(book, %{field: new_value})
+      {:ok, %Book{}}
 
-      iex> update_album(album, %{field: bad_value})
+      iex> update_book(book, %{field: bad_value})
       {:error, %Ecto.Changeset{}}
 
   """
-  def update_album(%Album{} = album, attrs) do
-    album
-    |> Album.changeset(attrs)
+  def update_book(%Book{} = book, attrs) do
+    book
+    |> Book.changeset(attrs)
     |> Repo.update()
   end
 
   @doc """
-  Deletes a album.
+  Deletes a book.
 
   ## Examples
 
-      iex> delete_album(album)
-      {:ok, %Album{}}
+      iex> delete_book(book)
+      {:ok, %Book{}}
 
-      iex> delete_album(album)
+      iex> delete_book(book)
       {:error, %Ecto.Changeset{}}
 
   """
-  def delete_album(%Album{} = album) do
-    Repo.delete(album)
+  def delete_book(%Book{} = book) do
+    Repo.delete(book)
   end
 
   @doc """
-  Returns an `%Ecto.Changeset{}` for tracking album changes.
+  Returns an `%Ecto.Changeset{}` for tracking book changes.
 
   ## Examples
 
-      iex> change_album(album)
-      %Ecto.Changeset{data: %Album{}}
+      iex> change_book(book)
+      %Ecto.Changeset{data: %Book{}}
 
   """
-  def change_album(%Album{} = album, attrs \\ %{}) do
-    Album.changeset(album, attrs)
+  def change_book(%Book{} = book, attrs \\ %{}) do
+    Book.changeset(book, attrs)
   end
 end
