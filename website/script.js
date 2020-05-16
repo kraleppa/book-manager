@@ -75,6 +75,13 @@ loadBookData = (id) => {
 })
 }
 
+function handleErrors(response) {
+    if (!response.ok) {
+        throw Error(response.statusText);
+    }
+    return response;
+}
+
 addBook = () => {
     const title = titleInput.value
     const author = authorInput.value
@@ -82,6 +89,9 @@ addBook = () => {
     const numberOfPages =  parseInt(pagesInput.value, 10)
     const date = dateInput.value
     const imageUrl = imageUrlInput.value
+    console.log(typeof(numberOfPages))
+    console.log(typeof(date))
+    console.log(typeof(imageUrl))
     fetch('http://localhost:4000/api/graphql',{
     method: 'POST',
     headers: {"Content-Type": "application/json"},
@@ -109,6 +119,7 @@ addBook = () => {
         `
     })
 })
+.then(handleErrors)
 .then(res => res.json())
 .then(data => console.log(data.data))
 .catch((error) => {
