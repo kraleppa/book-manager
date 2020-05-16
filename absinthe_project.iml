@@ -11,6 +11,7 @@
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/absinthe_ecto" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/absinthe_plug" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/connection" />
+      <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cors_plug" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cowboy" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/cowlib" />
       <excludeFolder url="file://$MODULE_DIR$/_build/dev/lib/db_connection" />
@@ -86,5 +87,6 @@
     <orderEntry type="library" name="dialyze" level="project" />
     <orderEntry type="library" name="mix_test_watch" level="project" />
     <orderEntry type="library" name="ex_machina" level="project" />
+    <orderEntry type="library" name="cors_plug" level="project" />
   </component>
 </module>
