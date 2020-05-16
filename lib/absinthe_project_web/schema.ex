@@ -5,8 +5,14 @@ defmodule AbsintheProjectWeb.Schema do
 
   query do
     @desc "Get all books"
-    field :books, list_of(:book_type) do
-      resolve &Resolvers.BookResolver.books/3
+    field :get_all_books, list_of(:book_type) do
+      resolve &Resolvers.BookResolver.get_all_books/3
+    end
+
+    @desc "Get book by id"
+    field :get_book, type: :book_type do
+      arg(:id, non_null(:id))
+      resolve &Resolvers.BookResolver.get_book/3
     end
   end
 
@@ -18,3 +24,4 @@ defmodule AbsintheProjectWeb.Schema do
     end
   end
 end
+
