@@ -1,6 +1,14 @@
 const list = document.getElementById("list")
 const dataField = document.getElementById("data-field")
 
+const titleInput = document.getElementById("titleInput")
+const authorInput = document.getElementById("authorInput")
+const descriptionInput = document.getElementById("descriptionInput")
+const pagesInput = document.getElementById("pagesInput")
+const dateInput = document.getElementById("dateInput")
+const imageUrlInput = document.getElementById("imageUrlInput")
+
+
 fetch('http://localhost:4000/api/graphql',{
     method: 'POST',
     headers: {"Content-Type": "application/json"},
@@ -65,4 +73,45 @@ loadBookData = (id) => {
     dataField.innerHTML=""
     dataField.appendChild(element)
 })
+}
+
+addBook = () => {
+    const title = titleInput.value
+    const author = authorInput.value
+    const description = descriptionInput.value
+    const numberOfPages =  parseInt(pagesInput.value, 10)
+    const date = dateInput.value
+    const imageUrl = imageUrlInput.value
+    fetch('http://localhost:4000/api/graphql',{
+    method: 'POST',
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+        query: `
+            mutation{
+                    addBook(input:{
+                      title: "${title}",
+                      author: "${author}",
+                        description: "${description}",
+                        releaseDate: "${date}",
+                        numberOfPages: ${numberOfPages},
+                        imageUrl: "${imageUrl}"
+                    })
+                    {
+                      id
+                      title
+                      author
+                      description
+                      releaseDate
+                      numberOfPages
+                      imageUrl
+                    }
+                  }
+        `
+    })
+})
+.then(res => res.json())
+.then(data => console.log(data.data))
+.catch((error) => {
+    console.error('Error:', error);
+  });
 }
