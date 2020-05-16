@@ -1,6 +1,7 @@
 # Book manager
-[![phoenix badge](https://img.shields.io/badge/phoenix-1.5.1-purple)](https://hex.pm/packages/phoenix/1.5.1)
+[![phoenix badge](https://img.shields.io/badge/phoenix-1.5.1-orange)](https://hex.pm/packages/phoenix/1.5.1)
 [![absinthe badge](https://img.shields.io/badge/absinthe-1.4.0-br)](https://img.shields.io/badge/absinthe-1.4.0-br)
+![bootstrap](https://img.shields.io/badge/bootstrap-3.4.1-blueviolet)
 
 ## Project Description
 Book manager is a simple web app for managing your books collection. It has GraphQL api written in Elixir Absinthe.
