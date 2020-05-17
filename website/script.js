@@ -122,6 +122,7 @@ addBook = () => {
 myForm.addEventListener('submit', (e) =>{
     e.preventDefault();
     addBook()
+    location.reload();
 })
 
 
