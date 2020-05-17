@@ -7,6 +7,7 @@ const descriptionInput = document.getElementById("descriptionInput")
 const pagesInput = document.getElementById("pagesInput")
 const dateInput = document.getElementById("dateInput")
 const imageUrlInput = document.getElementById("imageUrlInput")
+const myForm = document.getElementById("myForm")
 
 
 fetch('http://localhost:4000/api/graphql',{
@@ -75,13 +76,6 @@ loadBookData = (id) => {
 })
 }
 
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
-}
-
 addBook = () => {
     const title = titleInput.value
     const author = authorInput.value
@@ -107,7 +101,6 @@ addBook = () => {
                         imageUrl: "${imageUrl}"
                     })
                     {
-                      id
                       title
                       author
                       description
@@ -119,10 +112,16 @@ addBook = () => {
         `
     })
 })
-.then(handleErrors)
 .then(res => res.json())
 .then(data => console.log(data.data))
 .catch((error) => {
     console.error('Error:', error);
   });
 }
+
+myForm.addEventListener('submit', (e) =>{
+    e.preventDefault();
+    addBook()
+})
+
+
